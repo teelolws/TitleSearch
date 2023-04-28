@@ -1,0 +1,8 @@
+package-as: TitleSearch
+
+move-folders:
+ TitleSearch/Source: TitleSearch
+
+ignore:
+ - LICENCE.md
+ - README.md

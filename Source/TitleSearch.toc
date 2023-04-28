@@ -1,0 +1,14 @@
+## Interface: 100007
+## Title: Title Search
+## Notes: Allows you to search your titles, and see what titles you have yet to collect.
+## Author: Teelo
+## X-Curse-Project-ID: 855530
+## SavedVariables: TitleDB
+
+db.lua
+Unlearned.lua
+
+libs\LibStub\LibStub.lua
+libs\LibUIDropDownMenu\LibUIDropDownMenu.xml
+FilterDropDown.lua
+Filter.lua
