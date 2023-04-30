@@ -322,6 +322,13 @@ addon.TitleDB = {
 		["category"] = "PvP",
 	}, -- [41]
 	{
+		["name"] = "%s the Seeker",
+		["faction"] = "Both",
+		["id"] = 81,
+		["source"] = "3000 Quests Completed",
+		["category"] = "Quests",
+	}, -- [49]
+	{
 		["name"] = "Elder %s",
 		["faction"] = "Both",
 		["id"] = 74,
@@ -371,13 +378,6 @@ addon.TitleDB = {
 		["source"] = "Arena Season 4",
 		["category"] = "PvP",
 	}, -- [48]
-	{
-		["name"] = "%s the Seeker",
-		["faction"] = "Both",
-		["id"] = 81,
-		["source"] = "3000 Quests Completed",
-		["category"] = "Quests",
-	}, -- [49]
 	{
 		["name"] = "Arena Master %s",
 		["faction"] = "Both",
