@@ -3,7 +3,7 @@
 ## Notes: Allows you to search your titles, and see what titles you have yet to collect.
 ## Author: Teelo
 ## X-Curse-Project-ID: 855530
-## SavedVariables: TitleDB
+## SavedVariables: TitleSearchDB
 
 db.lua
 Unlearned.lua
