@@ -2908,6 +2908,7 @@ addon.TitleDB = {
 		["id"] = 659,
 		["source"] = "Phenomenal Cosmic Power",
 		["category"] = "General",
+        unobtainable = true,
 	}, -- [407]
 	{
 		["id"] = 660,
