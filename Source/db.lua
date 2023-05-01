@@ -1055,6 +1055,7 @@ addon.TitleDB = {
 		["id"] = 195,
 		["source"] = "Private",
 		["category"] = "PvP",
+        exclusiveWith = 1,
 	}, -- [154]
 	{
 		["name"] = "Corporal %s",
@@ -1062,6 +1063,7 @@ addon.TitleDB = {
 		["id"] = 196,
 		["source"] = "Corporal",
 		["category"] = "PvP",
+        exclusiveWith = 2,
 	}, -- [155]
 	{
 		["name"] = "Sergeant %s",
@@ -1069,6 +1071,7 @@ addon.TitleDB = {
 		["id"] = 197,
 		["source"] = "Sergeant",
 		["category"] = "PvP",
+        exclusiveWith = 3,
 	}, -- [156]
 	{
 		["name"] = "Master Sergeant %s",
@@ -1076,6 +1079,7 @@ addon.TitleDB = {
 		["id"] = 198,
 		["source"] = "Master Sergeant",
 		["category"] = "PvP",
+        exclusiveWith = 4,
 	}, -- [157]
 	{
 		["name"] = "Sergeant Major %s",
@@ -1083,6 +1087,7 @@ addon.TitleDB = {
 		["id"] = 199,
 		["source"] = "Sergeant Major",
 		["category"] = "PvP",
+        exclusiveWith = 5,
 	}, -- [158]
 	{
 		["name"] = "Knight %s",
@@ -1090,6 +1095,7 @@ addon.TitleDB = {
 		["id"] = 200,
 		["source"] = "Knight",
 		["category"] = "PvP",
+        exclusiveWith = 6,
 	}, -- [159]
 	{
 		["name"] = "Knight-Lieutenant %s",
@@ -1097,6 +1103,7 @@ addon.TitleDB = {
 		["id"] = 201,
 		["source"] = "Knight-Lieutenant",
 		["category"] = "PvP",
+        exclusiveWith = 7,
 	}, -- [160]
 	{
 		["name"] = "Knight-Captain %s",
@@ -1104,6 +1111,7 @@ addon.TitleDB = {
 		["id"] = 202,
 		["source"] = "Knight-Captain",
 		["category"] = "PvP",
+        exclusiveWith = 8,
 	}, -- [161]
 	{
 		["name"] = "Knight-Champion %s",
@@ -1111,6 +1119,7 @@ addon.TitleDB = {
 		["id"] = 203,
 		["source"] = "Knight-Champion",
 		["category"] = "PvP",
+        exclusiveWith = 9,
 	}, -- [162]
 	{
 		["name"] = "Lieutenant Commander %s",
@@ -1118,6 +1127,7 @@ addon.TitleDB = {
 		["id"] = 204,
 		["source"] = "Lieutenant Commander",
 		["category"] = "PvP",
+        exclusiveWith = 10,
 	}, -- [163]
 	{
 		["name"] = "Commander %s",
@@ -1125,6 +1135,7 @@ addon.TitleDB = {
 		["id"] = 205,
 		["source"] = "Commander",
 		["category"] = "PvP",
+        exclusiveWith = 11,
 	}, -- [164]
 	{
 		["name"] = "Marshal %s",
@@ -1132,6 +1143,7 @@ addon.TitleDB = {
 		["id"] = 206,
 		["source"] = "Marshal",
 		["category"] = "PvP",
+        exclusiveWith = 12,
 	}, -- [165]
 	{
 		["name"] = "Field Marshal %s",
@@ -1139,6 +1151,7 @@ addon.TitleDB = {
 		["id"] = 207,
 		["source"] = "Field Marshal",
 		["category"] = "PvP",
+        exclusiveWith = 13,
 	}, -- [166]
 	{
 		["name"] = "Grand Marshal %s",
@@ -1146,6 +1159,7 @@ addon.TitleDB = {
 		["id"] = 208,
 		["source"] = "Grand Marshal",
 		["category"] = "PvP",
+        exclusiveWith = 14,
 	}, -- [167]
 	{
 		["name"] = "Scout %s",
@@ -1153,6 +1167,7 @@ addon.TitleDB = {
 		["id"] = 209,
 		["source"] = "Scout",
 		["category"] = "PvP",
+        exclusiveWith = 15,
 	}, -- [168]
 	{
 		["name"] = "Grunt %s",
@@ -1160,6 +1175,7 @@ addon.TitleDB = {
 		["id"] = 210,
 		["source"] = "Grunt",
 		["category"] = "PvP",
+        exclusiveWith = 16,
 	}, -- [169]
 	{
 		["name"] = "Sergeant %s",
@@ -1167,6 +1183,7 @@ addon.TitleDB = {
 		["id"] = 211,
 		["source"] = "Sergeant",
 		["category"] = "PvP",
+        exclusiveWith = 17,
 	}, -- [170]
 	{
 		["name"] = "Senior Sergeant %s",
@@ -1174,6 +1191,7 @@ addon.TitleDB = {
 		["id"] = 212,
 		["source"] = "Senior Sergeant",
 		["category"] = "PvP",
+        exclusiveWith = 18,
 	}, -- [171]
 	{
 		["name"] = "First Sergeant %s",
@@ -1181,6 +1199,7 @@ addon.TitleDB = {
 		["id"] = 213,
 		["source"] = "First Sergeant",
 		["category"] = "PvP",
+        exclusiveWith = 19,
 	}, -- [172]
 	{
 		["name"] = "Stone Guard %s",
@@ -1188,6 +1207,7 @@ addon.TitleDB = {
 		["id"] = 214,
 		["source"] = "Stone Guard",
 		["category"] = "PvP",
+        exclusiveWith = 20,
 	}, -- [173]
 	{
 		["name"] = "Blood Guard %s",
@@ -1195,6 +1215,7 @@ addon.TitleDB = {
 		["id"] = 215,
 		["source"] = "Blood Guard",
 		["category"] = "PvP",
+        exclusiveWith = 21,
 	}, -- [174]
 	{
 		["name"] = "Legionnaire %s",
@@ -1202,6 +1223,7 @@ addon.TitleDB = {
 		["id"] = 216,
 		["source"] = "Legionnaire",
 		["category"] = "PvP",
+        exclusiveWith = 22,
 	}, -- [175]
 	{
 		["name"] = "Centurion %s",
@@ -1209,6 +1231,7 @@ addon.TitleDB = {
 		["id"] = 217,
 		["source"] = "Centurion",
 		["category"] = "PvP",
+        exclusiveWith = 23,
 	}, -- [176]
 	{
 		["name"] = "Champion %s",
@@ -1216,6 +1239,7 @@ addon.TitleDB = {
 		["id"] = 218,
 		["source"] = "Champion",
 		["category"] = "PvP",
+        exclusiveWith = 24,
 	}, -- [177]
 	{
 		["name"] = "Lieutenant General %s",
@@ -1223,6 +1247,7 @@ addon.TitleDB = {
 		["id"] = 219,
 		["source"] = "Lieutenant General",
 		["category"] = "PvP",
+        exclusiveWith = 25,
 	}, -- [178]
 	{
 		["name"] = "General %s",
@@ -1230,6 +1255,7 @@ addon.TitleDB = {
 		["id"] = 220,
 		["source"] = "General",
 		["category"] = "PvP",
+        exclusiveWith = 26,
 	}, -- [179]
 	{
 		["name"] = "Warlord %s",
@@ -1237,6 +1263,7 @@ addon.TitleDB = {
 		["id"] = 221,
 		["source"] = "Warlord",
 		["category"] = "PvP",
+        exclusiveWith = 27,
 	}, -- [180]
 	{
 		["name"] = "High Warlord %s",
@@ -1244,6 +1271,7 @@ addon.TitleDB = {
 		["id"] = 222,
 		["source"] = "High Warlord",
 		["category"] = "PvP",
+        exclusiveWith = 28,
 	}, -- [181]
 	{
 		["name"] = "%s, Hero of the Alliance",

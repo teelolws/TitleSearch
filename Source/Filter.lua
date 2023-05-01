@@ -50,6 +50,8 @@ end
 local function FullRefresh()
     PaperDollTitlesPane_UpdateScrollBox()
     
+    addon:UpdateDB()
+    
     local dataProvider = PaperDollFrame.TitleManagerPane.ScrollBox:GetDataProvider()
     
     if not TitleSearchDB then TitleSearchDB = {} end
