@@ -4,6 +4,7 @@
 ## Author: Teelo
 ## X-Curse-Project-ID: 855530
 ## IconTexture: Interface\Icons\INV_Misc_PaperBundle03c
+## SavedVariables: TitleSearchDB
 
 db.lua
 Unlearned.lua

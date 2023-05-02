@@ -28,30 +28,82 @@ local function UpdateResetFiltersButtonVisibility()
 end
 UpdateResetFiltersButtonVisibility()
 
+local STRIPE_COLOR = {r=0.9, g=0.9, b=1};
+local function setStripe(button, elementData)
+    if not button then
+        button = elementData.button
+    end
+    
+    if not button then
+        DevTools_Dump(elementData)
+    end
+    
+    if (elementData.index % 2 == 0) then
+		button.Stripe:SetColorTexture(STRIPE_COLOR.r, STRIPE_COLOR.g, STRIPE_COLOR.b);
+		button.Stripe:SetAlpha(0.1);
+		button.Stripe:Show();
+	else
+		button.Stripe:Hide();
+	end
+end
+
 local function FullRefresh()
     PaperDollTitlesPane_UpdateScrollBox()
     
+    addon:UpdateDB()
+    
     local dataProvider = PaperDollFrame.TitleManagerPane.ScrollBox:GetDataProvider()
     
-    if not knownFilter then
+    if not TitleSearchDB then TitleSearchDB = {} end
+    if not TitleSearchDB.favourites then TitleSearchDB.favourites = {} end
+    local favourites = TitleSearchDB.favourites
+    
+    if knownFilter then
+        local removed = {}
+        local normal = {}
+        dataProvider:ReverseForEach(function(data)
+            if data.index == 1 then return end
+            if favourites[data.playerTitle.id] then
+                table.insert(removed, data)
+            else
+                table.insert(normal, data)
+            end
+            dataProvider:Remove(data)
+        end)
+        
+        for i, data in ipairs(removed) do
+            data.index = i+1
+            table.insert(dataProvider.collection, 2, data)
+        end
+        
+        for i, data in ipairs(normal) do
+            data.index = i + #removed
+            table.insert(dataProvider.collection, #removed+2, data)
+        end
+    else
         dataProvider:ReverseForEach(function(data)
             dataProvider:Remove(data)
         end)
     end
     
+    local index = #dataProvider.collection + 1
     if unknownFilter then
-        dataProvider:Insert({divider=true})
+        dataProvider:Insert({index=index, divider=true})
+        index = index + 1
         
         for _, data in ipairs(addon.unknownTitles) do
-            dataProvider:Insert({index=data.oid, playerTitle={id=data.oid, name=GetTitleName(data.oid)}, unlearned=true, category=data.category, source=data.source})
+            dataProvider:Insert({index=index, playerTitle={id=data.oid, name=GetTitleName(data.oid)}, unlearned=true, category=data.category, source=data.source})
+            index = index + 1
         end
     end
     
     if unobtainableFilter then
-        dataProvider:Insert({divider=true})
+        dataProvider:Insert({index=index, divider=true})
+        index = index + 1
         
         for _, data in ipairs(addon.unobtainableTitles) do
-            dataProvider:Insert({index=data.oid, playerTitle={id=data.oid, name=GetTitleName(data.oid)}, unobtainable=true, category=data.category, source=data.source})
+            dataProvider:Insert({index=index, playerTitle={id=data.oid, name=GetTitleName(data.oid)}, unobtainable=true, category=data.category, source=data.source})
+            index = index + 1
         end
     end
 end
@@ -79,11 +131,12 @@ do
     UIDropDownMenu_Initialize(parent.filterDropDown, OpenCollectedFilterDropDown, "MENU")
 end
 
-local STRIPE_COLOR = {r=0.9, g=0.9, b=1};
 function PaperDollTitlesPane_InitButton(button, elementData)
+    elementData.button = button
     if elementData.divider then
         button.text:SetText("")
         button:SetEnabled(false)
+        setStripe(button, elementData)
         return
     else
         button:SetEnabled(true)
@@ -114,17 +167,10 @@ function PaperDollTitlesPane_InitButton(button, elementData)
 		button.BgMiddle:SetPoint("BOTTOM");
 	end
     
-    if (index % 2 == 0) then
-		button.Stripe:SetColorTexture(STRIPE_COLOR.r, STRIPE_COLOR.g, STRIPE_COLOR.b);
-		button.Stripe:SetAlpha(0.1);
-		button.Stripe:Show();
-	else
-		button.Stripe:Hide();
-	end
+    setStripe(button, elementData)
     
     if elementData.unlearned then
         button.text:SetTextColor(1, 1, 1)
-        button.Stripe:Hide()
         button:SetScript("OnEnter", function()
             GameTooltip:SetOwner(button, "ANCHOR_RIGHT")
             GameTooltip:ClearLines()
@@ -136,14 +182,22 @@ function PaperDollTitlesPane_InitButton(button, elementData)
         end)
     elseif elementData.unobtainable then
         button.text:SetTextColor(0.5, 0.5, 0.5)
-        button.Stripe:Show()
-        button.Stripe:SetColorTexture(STRIPE_COLOR.r, STRIPE_COLOR.g, STRIPE_COLOR.b)
-        button.Stripe:SetAlpha(0.1)
         button:SetScript("OnEnter", nil)
     else
         button.text:SetTextColor(1.0, 0.82, 0)
         button:SetScript("OnEnter", nil)
     end
+    
+    button:RegisterForClicks("LeftButtonDown", "RightButtonDown")
+    button:SetScript("OnClick", function(self, button, down)
+        if button == "RightButton" then
+            TitleSearchDB.favourites[self.titleId] = not TitleSearchDB.favourites[self.titleId]
+            PaperDollTitlesPane_Update()
+        else
+            PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_OFF);
+            SetCurrentTitle(self.titleId);
+        end
+    end)
 end
 
 local searchText = ""
