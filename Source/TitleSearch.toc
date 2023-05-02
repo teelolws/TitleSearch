@@ -1,8 +1,9 @@
-## Interface: 100007
+## Interface: 100100
 ## Title: Title Search
 ## Notes: Allows you to search your titles, and see what titles you have yet to collect.
 ## Author: Teelo
 ## X-Curse-Project-ID: 855530
+## IconTexture: Interface\Icons\INV_Misc_PaperBundle03c
 ## SavedVariables: TitleSearchDB
 
 db.lua
