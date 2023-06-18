@@ -28,6 +28,33 @@ local function UpdateResetFiltersButtonVisibility()
 end
 UpdateResetFiltersButtonVisibility()
 
+local categories = {"PvP", "World Events", "General", "Dungeons & Raids", "Pet Battles", "Scenarios", "Garrisons", "Quests", "Reputation", "Professions", "Class Halls"}
+local categoriesToID = {["PvP"] = 1, ["World Events"] = 2, ["General"] = 3, ["Dungeons & Raids"] = 4, ["Pet Battles"] = 5, ["Scenarios"] = 6, ["Garrisons"] = 7, ["Quests"] = 8, ["Reputation"] = 9, ["Professions"] = 10, ["Class Halls"] = 11}
+local sourceFilter = {}
+
+local function SetSourceFilter(source, checked)
+    sourceFilter[source] = checked
+end
+
+local function GetSourceFilter(source)
+    if sourceFilter[source] == nil then return true end
+    return sourceFilter[source]
+end
+
+local function SetAllSourceFilters(checked)
+    for i = 1, 99 do
+        sourceFilter[i] = checked
+    end
+end
+
+local function GetNumSources()
+    return #categories
+end
+
+local function GetSourceName(index)
+    return categories[index]
+end
+
 local STRIPE_COLOR = {r=0.9, g=0.9, b=1};
 local function setStripe(button, elementData)
     if not button then
@@ -72,13 +99,17 @@ local function FullRefresh()
         end)
         
         for i, data in ipairs(removed) do
-            data.index = i+1
-            table.insert(dataProvider.collection, 2, data)
+            if (not addon.TitleDB[data.playerTitle.id]) or GetSourceFilter(categoriesToID[addon.TitleDB[data.playerTitle.id].category]) then
+                data.index = i+1
+                table.insert(dataProvider.collection, 2, data)
+            end
         end
         
         for i, data in ipairs(normal) do
-            data.index = i + #removed
-            table.insert(dataProvider.collection, #removed+2, data)
+            if (not addon.TitleDB[data.playerTitle.id]) or GetSourceFilter(categoriesToID[addon.TitleDB[data.playerTitle.id].category]) then
+                data.index = i + #removed
+                table.insert(dataProvider.collection, #removed+2, data)
+            end
         end
     else
         dataProvider:ReverseForEach(function(data)
@@ -92,8 +123,10 @@ local function FullRefresh()
         index = index + 1
         
         for _, data in ipairs(addon.unknownTitles) do
-            dataProvider:Insert({index=index, playerTitle={id=data.oid, name=GetTitleName(data.oid)}, unlearned=true, category=data.category, source=data.source})
-            index = index + 1
+            if GetSourceFilter(categoriesToID[data.category]) then
+                dataProvider:Insert({index=index, playerTitle={id=data.oid, name=GetTitleName(data.oid)}, unlearned=true, category=data.category, source=data.source})
+                index = index + 1
+            end
         end
     end
     
@@ -102,8 +135,10 @@ local function FullRefresh()
         index = index + 1
         
         for _, data in ipairs(addon.unobtainableTitles) do
-            dataProvider:Insert({index=index, playerTitle={id=data.oid, name=GetTitleName(data.oid)}, unobtainable=true, category=data.category, source=data.source})
-            index = index + 1
+            if GetSourceFilter(categoriesToID[data.category]) then
+                dataProvider:Insert({index=index, playerTitle={id=data.oid, name=GetTitleName(data.oid)}, unobtainable=true, category=data.category, source=data.source})
+                index = index + 1
+            end
         end
     end
 end
@@ -112,6 +147,25 @@ filterButton:SetResetFunction(function()
     knownFilter, unknownFilter, unobtainableFilter = true, true, false
     FullRefresh()
 end)
+
+local function IsSourceChecked(source)
+	return GetSourceFilter(source)
+end
+
+local function SetSourceChecked(source, checked)
+	if IsSourceChecked(source) ~= checked then
+		SetSourceFilter(source, checked);
+
+		FullRefresh()
+	end
+end
+
+local function SetAllSourcesChecked(checked)
+	SetAllSourceFilters(checked)
+
+	FullRefresh()
+	LibDD:UIDropDownMenu_Refresh(parent.filterDropDown, L_UIDROPDOWNMENU_MENU_VALUE, L_UIDROPDOWNMENU_MENU_LEVEL)
+end
 
 do
     local function OpenCollectedFilterDropDown(self, level)
@@ -122,6 +176,26 @@ do
           			{ type = FilterComponent.Checkbox, text = COLLECTED, set = function(value) knownFilter = value FullRefresh() end, isSet = function() return knownFilter end },
           			{ type = FilterComponent.Checkbox, text = NOT_COLLECTED, set = function(value) unknownFilter = value FullRefresh() end, isSet = function() return unknownFilter end },
                     { type = FilterComponent.Checkbox, text = MOUNT_JOURNAL_FILTER_UNUSABLE, set = function(value) unobtainableFilter = value FullRefresh() end, isSet = function() return unobtainableFilter end },
+                    { type = FilterComponent.Submenu, text = SOURCES, value = 1, childrenInfo = {
+            				filters = {
+            					{ type = FilterComponent.TextButton, 
+            					  text = CHECK_ALL,
+            					  set = function() SetAllSourcesChecked(true) end, 
+            					},
+            					{ type = FilterComponent.TextButton,
+            					  text = UNCHECK_ALL,
+            					  set = function() SetAllSourcesChecked(false) end, 
+            					},
+            					{ type = FilterComponent.DynamicFilterSet,
+            					  buttonType = FilterComponent.Checkbox, 
+            					  set = function(filter, value)	SetSourceChecked(filter, value) end,
+            					  isSet = function(source) return IsSourceChecked(source) end,
+            					  numFilters = GetNumSources,
+            					  nameFunction = GetSourceName,
+            					},
+            				},
+        			    },
+                    },
           		},
       		}
 

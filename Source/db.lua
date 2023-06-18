@@ -1787,7 +1787,7 @@ addon.TitleDB = {
 		["name"] = "Grievous Gladiator %s",
 		["faction"] = "Both",
 		["id"] = 378,
-		["source"] = "Grievous Gladiator: Season 14 Arena Season 14",
+		["source"] = "Grievous Gladiator: Season 14",
 		["category"] = "PvP",
 	}, -- [253]
 	{
@@ -1795,7 +1795,7 @@ addon.TitleDB = {
 		["name"] = "Prideful Gladiator %s",
 		["faction"] = "Both",
 		["id"] = 379,
-		["source"] = "Prideful Gladiator: Season 15 Arena Season 15",
+		["source"] = "Prideful Gladiator: Season 15",
 		["category"] = "PvP",
 	}, -- [254]
 	{
@@ -2873,7 +2873,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 654,
 		["source"] = "Notorious Gladiator: Battle for Azeroth Season 3",
-		["category"] = "General",
+		["category"] = "PvP",
 	}, -- [402]
 	{
 		["name"] = "Junkyard %s",
@@ -2938,7 +2938,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 665,
 		["source"] = "Corrupted Gladiator: Battle for Azeroth Season 4",
-		["category"] = "General",
+		["category"] = "PvP",
 	}, -- [412]
 	{
 		["name"] = "%s, Veteran of the Fourth War",
@@ -3089,7 +3089,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 688,
 		["source"] = "Sinful Gladiator: Shadowlands Season 1",
-		["category"] = "General",
+		["category"] = "PvP",
 	}, -- [434]
 	{
 		["id"] = 689,
@@ -3137,7 +3137,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 698,
 		["source"] = "Unchained Gladiator: Shadowlands Season 2",
-		["category"] = "General",
+		["category"] = "PvP",
 	}, -- [441]
 	{
 		["id"] = 699,
@@ -3213,7 +3213,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 712,
 		["source"] = "Cosmic Gladiator: Shadowlands Season 3",
-		["category"] = "General",
+		["category"] = "PvP",
 	}, -- [452]
 	{
 		["unobtainable"] = true,
@@ -3250,7 +3250,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 717,
 		["source"] = "Shadowlands Keystone Conqueror: Season Three",
-		["category"] = "General",
+		["category"] = "PvP",
 	}, -- [457]
 	{
 		["id"] = 718,
@@ -3278,7 +3278,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 721,
 		["source"] = "Eternal Gladiator: Shadowlands Season 4",
-		["category"] = "General",
+		["category"] = "PvP",
 	}, -- [461]
 	{
 		["name"] = "%s, Maw Walker",
@@ -3329,7 +3329,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 729,
 		["source"] = "Crimson Gladiator: Dragonflight Season 1",
-		["category"] = "General",
+		["category"] = "PvP",
         unobtainable = true,
 	}, -- [468]
 	{
@@ -3382,7 +3382,7 @@ addon.TitleDB = {
 		["id"] = 737,
 		["faction"] = "Both",
 		["name"] = "%s of Iskaara",
-		["category"] = "General",
+		["category"] = "Reputation",
 	}, -- [476]
 	{
 		["name"] = "%s the Thundering",
@@ -3491,6 +3491,7 @@ addon.TitleDB = {
 		["id"] = 752,
 		["source"] = "Legend: Dragonflight Season 1",
 		["category"] = "General",
+        unobtainable = true,
 	}, -- [491]
 	{
 		["name"] = "Skyscourge %s",
@@ -3520,4 +3521,94 @@ addon.TitleDB = {
 		["source"] = "You Know How to Reach Me",
 		["category"] = "General",
 	}, -- [495]
+    {   unobtainable = true,
+    },
+    {   unobtainable = true,
+    },
+    {
+        name = "%s the Reconciler",
+        id = 765,
+        faction = "Both",
+        category = "Quests",
+        source = "Active Listening Skills",
+    }, -- 498
+    {
+        name = "Obsidian Gladiator %s",
+        id = 766,
+        faction = "Both",
+        category = "PvP",
+        source = "Obsidian Gladiator: Dragonflight Season 2",
+    }, -- 499
+	{
+		id = 767,
+		name = "Obsidian Legend %s",
+        category = "PvP",
+        source = "Obsidian Legend: Dragonflight Season 2",
+        faction = "Both",
+	}, -- 500
+	{
+		id = 768,
+		name = "Smelly %s",
+        faction = "Both",
+        category = "Reputation",
+        source = "Loamm Niffen Renown 20",
+	}, -- 501
+	{
+		id = 769,
+		name = "%s, Barter Boss",
+        faction = "Both",
+        category = "General",
+        source = "Pyramid Scheme",
+	}, -- 502
+	{
+		id = 770,
+		name = "%s the Smoldering",
+        faction = "Both",
+        category = "Dungeons & Raids",
+        source = "Dragonflight Keystone Conqueror: Season Two",
+	}, -- 503
+	{
+		id = 771,
+		name = "%s the Smoldering Hero",
+        faction = "Both",
+        unobtainable = true,
+        category = "Dungeons & Raids",
+        source = "Smoldering Hero: Dragonflight Season 2",
+	}, -- 504
+	{
+		id = 772,
+		name = "%s, Heir to the Void",
+        faction = "Both",
+        category = "Dungeons & Raids",
+        source = "Mythic: Scalecommander Sarkareth",
+	}, -- 505
+	{
+		id = 773,
+		name = "%s, Famed Slayer of Sarkareth",
+        faction = "Both",
+        category = "Dungeons & Raids",
+        source = "Hall of Fame: Scalecommander Sarkareth",
+        unobtainable = true,
+	}, -- 506
+	{
+		id = 774,
+		name = "%s, Sniffenseeker",
+        faction = "Both",
+        category = "General",
+        source = "A Niffen's Best Buddy",
+	}, -- 507
+	{
+		id = 775,
+		name = "Field Researcher %s",
+        faction = "Both",
+        category = "General",
+        source = "Cooling the Research Field",
+	}, -- 508
+	{
+		id = 776,
+		name = "Zaralek Cavern Racer %s",
+        faction = "Both",
+        category = "General",
+        source = "Zaralek Cavern Racing Completionist: Gold",
+	}, -- 509
 }
