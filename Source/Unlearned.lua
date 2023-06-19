@@ -6,6 +6,8 @@ addon.unknownTitles = {}
 addon.unobtainableTitles = {}
 
 function addon.UpdateDB()
+    wipe(addon.unknownTitles)
+    wipe(addon.unobtainableTitles)
     for id, data in ipairs(db) do
         if  (not data.temporary) and 
             (not IsTitleKnown(id)) and 
