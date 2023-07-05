@@ -28,8 +28,8 @@ local function UpdateResetFiltersButtonVisibility()
 end
 UpdateResetFiltersButtonVisibility()
 
-local categories = {"PvP", "World Events", "General", "Dungeons & Raids", "Pet Battles", "Scenarios", "Garrisons", "Quests", "Reputation", "Professions", "Class Halls"}
-local categoriesToID = {["PvP"] = 1, ["World Events"] = 2, ["General"] = 3, ["Dungeons & Raids"] = 4, ["Pet Battles"] = 5, ["Scenarios"] = 6, ["Garrisons"] = 7, ["Quests"] = 8, ["Reputation"] = 9, ["Professions"] = 10, ["Class Halls"] = 11}
+local categories = {"PvP", "World Events", "General", "Dungeons & Raids", "Pet Battles", "Scenarios", "Garrisons", "Quests", "Reputation", "Professions", "Class Halls", "Dragonriding"}
+local categoriesToID = {["PvP"] = 1, ["World Events"] = 2, ["General"] = 3, ["Dungeons & Raids"] = 4, ["Pet Battles"] = 5, ["Scenarios"] = 6, ["Garrisons"] = 7, ["Quests"] = 8, ["Reputation"] = 9, ["Professions"] = 10, ["Class Halls"] = 11, ["Dragonriding"] = 12,}
 local sourceFilter = {}
 
 local function SetSourceFilter(source, checked)
