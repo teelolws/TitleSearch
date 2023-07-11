@@ -3410,8 +3410,7 @@ addon.TitleDB = {
 		["faction"] = "Both",
 		["id"] = 741,
 		["source"] = "Court is Now in Session",
-		["category"] = "General",
-        unobtainable = true,
+		["category"] = "Pet Battles",
 	}, -- [480]
 	{
 		["id"] = 742,
@@ -3521,7 +3520,12 @@ addon.TitleDB = {
 		["source"] = "You Know How to Reach Me",
 		["category"] = "General",
 	}, -- [495]
-    {   unobtainable = true,
+    {   
+        id = 763,
+        name = "Kalimdor Racer %s",
+        category = "Dragonriding",
+        source = "Kalimdor Racing Completionist: Gold",
+        faction = "Both",
     },
     {   unobtainable = true,
     },
@@ -3611,4 +3615,33 @@ addon.TitleDB = {
         category = "General",
         source = "Zaralek Cavern Racing Completionist: Gold",
 	}, -- 509
+    {
+        id = 777,
+        name = "Whelptender %s",
+        faction = "Both",
+        category = "Pet Battles",
+        source = "Hey Nanny Nanny",
+    }, -- 510
+    {
+        unobtainable = true,
+    }, -- 511
+    {
+        id = 782,
+        name = "%s the Inquisitive",
+        faction = "Both",
+        category = "General",
+        source = "The Inquisitive",
+    }, -- 512
+    {
+        id = 781,
+        name = "%s Unparalleled",
+        unobtainable = true,
+    }, -- 513
+    {
+        id = 783,
+        name = "%s of the Infinite",
+        faction = "Both",
+        category = "Dungeons & Raids",
+        source = "Defender of the Timeways",
+    }, -- 514
 }
