@@ -1,4 +1,4 @@
-## Interface: 100105
+## Interface: 110002
 ## Title: Title Search
 ## Notes: Allows you to search your titles, and see what titles you have yet to collect.
 ## Author: Teelo
